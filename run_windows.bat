@@ -1,1 +1,2 @@
-python "%~dp0\format.py"
+py "format.py"
+pause
