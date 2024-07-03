@@ -36,7 +36,7 @@ def isNotEmpty(string):
 
 def extractQnA(filename):
 
-    with open(filename, 'r') as file:
+    with open(filename, 'r', encoding='utf-8') as file:
         
         questions = []
         answers = []
@@ -65,7 +65,7 @@ def createFormattingQueue():
     formattingQueue = []
     for file in allFiles:
         if file.endswith(".txt"):
-            firstLine = open(unformatted_dir_name + "/" + file).readline().rstrip()
+            firstLine = open(unformatted_dir_name + "/" + file, encoding='utf-8').readline().rstrip()
             if firstLine != default_watermark or manual_watermark:
                 formattingQueue.append(file)
 
@@ -81,7 +81,7 @@ def formatFile(file, isManual, questions, answers):
             watermark = default_watermark
             formatType = "formatted"
         
-        f = open(f"{formatted_folder_name}/{file.strip('.txt')}_{formatType}.txt", "w")
+        f = open(f"{formatted_folder_name}/{file.strip('.txt')}_{formatType}.txt", "w", encoding='utf-8')
         f.write(watermark)
 
         
