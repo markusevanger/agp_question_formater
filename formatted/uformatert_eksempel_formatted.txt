@@ -1,0 +1,53 @@
+This file is formatted using a automated tool. Do not remove the line you are currently reading.
+ 
+Spørsmålssett 1: 
+
+1. I hvilken film spiller Leonardo DiCaprio en undercover politimann som har infiltrert mafiaen? 
+2. Hvilken statsmann var den viktigste forfatteren av USAs uavhengighetserklæring? 
+3. I hvilket band spilte Jorma Kaukonen gitar? 
+4. Hvilken film fra 1976 er sitatet You talkin' to me? hentet fra? 
+5. Hvilken nasjon er kjent for sin samba-dans? 
+6. Hvem var den skotske oppdageren som er kjent for å ha ledet de første europeiske ekspedisjonene til innlandet av Australia? 
+7. Hva er verdens største bilmerke etter markedsverdi? 
+8. For hvilket land var Egil Olsen landslagstrener i 2007 og 2008? 
+9. Hva står forkortelsen CSS for innen webutvikling? 
+10. Hvem var konge da Bergen fikk bystatus i 1070? 
+
+1. The Departed 
+2. Thomas Jefferson 
+3. Jefferson Airplane 
+4. Taxi Driver 
+5. Brasil 
+6. Matthew Flinders 
+7. Toyota 
+8. Irak 
+9. Cascading Style Sheets 
+10. Olav Kyrre 
+
+
+===================
+
+
+Spørsmålssett 2: 
+
+1. Hvilken amerikansk delstat er kjent som The Golden State? 
+2. Ved hvilken alder blir de fiktive hobittene i Ringenes herre myndige? 
+3. Hvilken Bondpike hadde tittelrollen i Octopussy, men var også Bondpike i The Man with the Golden Gun? 
+4. Hva er Norges største øy? 
+5. Hvilken skuespiller fikk sitt store gjennombrudd i TV-serien Helgenen? 
+6. Hva er en antisyklon? 
+7. Hvilken artist er kjent for sangen My Heart Will Go On fra filmen Titanic? 
+8. Hvilken ørken ligger Timbuktu i utkanten av? 
+9. Hvilket land har en provins som heter Saskatchewan? 
+10. Hva het bilmodellen som erstattet Ford Taunus og som senere ble erstattet av Ford Mondeo? 
+
+1. California 
+2. 33 år 
+3. Maud Adams 
+4. Hinnøya 
+5. Roger Moore 
+6. Et høytrykksområde 
+7. Celine Dion 
+8. Sahara 
+9. Canada 
+10. Sierra 
