@@ -12,7 +12,7 @@ Noen filer slipper iblant gjennom med feil, disse blir som regel markert med "_m
 Programmet kan kun kjøres med .bat filen fra Windows PCer, men kan kjøres fra terminal i Windows, Mac og Linux
 
 + Ha python installert lokalt på maskinen din: https://www.python.org/downloads/
-+ Trykk på grønn <>Code knapp oppe til høyre, og trykk "Download ZIP"
++ Trykk på grønn `<>Code` knapp oppe til høyre, og trykk "Download ZIP"
 + Pakk ut zip filen.  
 + Legg filer som skal formateres inn i "unformatted" mappen.
 + Kjør (dobbelttrykk) vedlagt .bat fil
