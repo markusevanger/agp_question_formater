@@ -2,12 +2,39 @@ import random
 import os
 
 
+"""
+
+Dette scriptet er laget for å formatere "20 spørsmåls" filer til 2 x 10 spørsmål til bruk i Agderposten. 
+
+Scriptet leser .txt filer fra mappen "unformatted" (eller annet navn gitt under) ⬇️.
+Deretter lager den en formatert kopi i mappen kalt "formatted" (kan også bytte navn under) ⬆️
+
+Noen filer slipper iblant gjennom med feil, disse blir som regel markert med "_manual" i filnavnet. 
+
+"""
+
+# ⬇️ This is the directory that output is place in. 
+formatted_folder_name = "formatted"
+
+# ⬆️ This is the directory that the script reads from. 
+unformatted_dir_name = "unformatted"
+
+
+
+
+# This is the message generated at the top of all files that are OK
+default_watermark = "Denne filen er automatisk formatert. Alltid Dobbeltsjekk. \n \n"
+
+# This message is shown on files that needs to be fixed manually.
+manual_watermark = "\n !!! \n Denne filen kunne ikke bli formatert skikkelig. \n Det er sansynligvis for mange svar fordi ett av svarende inneholder ett ',' noe sted. \n \n"
+
+
 
 
 def isNotEmpty(string):
     return string.strip() != ""
 
-def formatFile(filename):
+def extractQnA(filename):
 
     with open(filename, 'r') as file:
         
@@ -32,43 +59,30 @@ def formatFile(filename):
     return (questions, answers)
 
 
-def createFormattingQueue(watermark):
+def createFormattingQueue():
     
-    allFiles = os.listdir()
+    allFiles = os.listdir(unformatted_dir_name)
     formattingQueue = []
     for file in allFiles:
         if file.endswith(".txt"):
-            firstLine = open(file).readline().rstrip()
-            if firstLine != watermark:
+            firstLine = open(unformatted_dir_name + "/" + file).readline().rstrip()
+            if firstLine != default_watermark or manual_watermark:
                 formattingQueue.append(file)
 
     return formattingQueue
 
-
-def main():
-
-    watermark = "This file is formatted using a automated tool. Do not remove the line you are currently reading."
-    formatted_folder_name = "formatted"
-    
-
-    if formatted_folder_name not in os.listdir():
-        os.mkdir(formatted_folder_name)
-
-    
-    
-    formattingQueue = createFormattingQueue(watermark)
-    for file in formattingQueue:
-        questions, answers = formatFile(file)
+def formatFile(file, isManual, questions, answers):
+  
         
-        if len(questions) != len(answers):
-            print("Questions  and Answer length do not match. ")
-            print(f"Amount of Qs: {len(questions)}")
-            print(f"Amount of As: {len(answers)}")
-            print(f"Stopping on program on file: {file}")
-            return
-
-        f = open(f"{formatted_folder_name}/{file.strip('.txt')}_formatted.txt", "w")
-        f.write(watermark + "\n \n")
+        if isManual:
+            watermark = manual_watermark
+            formatType = "manual"
+        else:
+            watermark = default_watermark
+            formatType = "formatted"
+        
+        f = open(f"{formatted_folder_name}/{file.strip('.txt')}_{formatType}.txt", "w")
+        f.write(watermark)
 
         
         # Questionset 1:
@@ -88,17 +102,51 @@ def main():
             f.write(f"{i-9}. {questions[i]} \n")
         f.write("\n")
 
-        for i in range(10, 20):
+
+        if isManual:
+            rangeMax = len(answers)
+        else: 
+            rangeMax = 20
+
+        for i in range(10, rangeMax):
             f.write(f"{i-9}. {answers[i]} \n")
-            
+        f.close()
 
-
-
-        
-
-
-
-    # formater_fil(filename=fil)
     
+
+
+def main():
+
+    print("💬 Checking if a formatted directory exists")
+    if formatted_folder_name not in os.listdir():
+        os.mkdir(formatted_folder_name)
+        print("💬 Created new formatted directory with name: " + formatted_folder_name)
+
+
+    
+    
+    formattingQueue = createFormattingQueue()
+    print(f"💬 Created queue of files to format ({len(formattingQueue)} files)")
+
+    print(f"💬 Formatting {len(formattingQueue)} files.")
+
+    manualCounter = 0 
+    for file in formattingQueue:
+        questions, answers = extractQnA(unformatted_dir_name + "/" + file)
+
+        needsToBeFixedManually = len(questions) != len(answers)
+        if needsToBeFixedManually: 
+            manualCounter += 1
+
+        formatFile(
+                file=file,
+                isManual=needsToBeFixedManually,
+                questions=questions,
+                answers=answers
+                )
+    print()
+    print(f"✅ Done formatting. Resulting files in /{formatted_folder_name}")
+    print(f"✨ Formatted {len(formattingQueue) - manualCounter} correctly.")
+    print(f"❌ {manualCounter} files needs to be manually checked.")
 
 main()
