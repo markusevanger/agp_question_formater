@@ -11,15 +11,7 @@ Dette scriptet er laget for å formatere "20 spørsmåls" filer til 2 x 10 spør
 # 📦 For å kjøre:
 Programmet kan kun kjøres med .bat filen fra Windows PCer, men kan kjøres fra terminal i Windows, Mac og Linux
 
-## Stegvis
-+ Ha python installert lokalt på maskinen din: https://www.python.org/downloads/
-+ Trykk på grønn `<>Code` knapp oppe til høyre, og trykk "Download ZIP"
-+ Pakk ut zip filen.  
-+ Legg filer som skal formateres inn i "unformatted" mappen.
-+ Kjør (dobbelttrykk) vedlagt .bat fil
-+ Filene skal nå ligge i `formatted` mappen. Disse kan du nå bruke i AGP :D
-
-> NB! Scriptet er ikke grundig testet og derfor burde det alltid dobbeltsjekkes at spørsmål og svar er riktig! 
+### Struktur
 
 ```
 agp_question_formater-main
@@ -30,3 +22,17 @@ agp_question_formater-main
 └── formatted
     └── 📁 Denne mappen genereres automatisk vis den ikke er tilstede. Her kommer output.
 ```
+
+
+
+### Stegvis
++ Ha python installert lokalt på maskinen din: https://www.python.org/downloads/
++ Trykk på grønn `<>Code` knapp oppe til høyre, og trykk "Download ZIP"
++ Pakk ut zip filen.  
++ Legg filer som skal formateres inn i "unformatted" mappen.
++ Kjør (dobbelttrykk) vedlagt .bat fil
++ Filene skal nå ligge i `formatted` mappen. Disse kan du nå bruke i AGP :D
+
+> NB! Scriptet er ikke grundig testet og derfor burde det alltid dobbeltsjekkes at spørsmål og svar er riktig! 
+
+
