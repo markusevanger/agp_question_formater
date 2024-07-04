@@ -1,4 +1,4 @@
-# 🤖 AGP 20 Spørsmål formaterer
+# 🤖 Agderposten 20 Spørsmål formaterer
 
 Dette scriptet er laget for å formatere "20 spørsmåls" filer til 2 x 10 spørsmål til bruk i Agderposten. 
 
