@@ -1,4 +1,3 @@
-import random
 import os
 
 
@@ -13,13 +12,11 @@ Noen filer slipper iblant gjennom med feil, disse blir som regel markert med "_m
 
 """
 
-# ⬇️ This is the directory that output is place in. 
+# ⬇️ This is the directory that output is placed in. 
 formatted_folder_name = "formatted"
 
 # ⬆️ This is the directory that the script reads from. 
 unformatted_dir_name = "unformatted"
-
-
 
 
 # This is the message generated at the top of all files that are OK
@@ -31,9 +28,11 @@ manual_watermark = "\n !!! \n Denne filen kunne ikke bli formatert skikkelig. \n
 
 
 
-def isNotEmpty(string):
+def isNotEmpty(string:str):
     return string.strip() != ""
 
+
+# Takes an unformatted 20 questions filename and returns two lists of questions and answers.
 def extractQnA(filename):
 
     with open(filename, 'r', encoding='utf-8') as file:
@@ -44,7 +43,6 @@ def extractQnA(filename):
 
         counter = 0
         for line in file:
-
             if (counter < 20 and isNotEmpty(line)):
                 questions.append(line.strip())
                 counter += 1
@@ -59,6 +57,7 @@ def extractQnA(filename):
     return (questions, answers)
 
 
+# Returns a list containing all .txt files that are not processed in the unformatted directory.  
 def createFormattingQueue():
     
     allFiles = os.listdir(unformatted_dir_name)
@@ -71,6 +70,9 @@ def createFormattingQueue():
 
     return formattingQueue
 
+# Creates a new .txt file that contains two sets of questions. 
+# if isManual is True, extractQnA did not manage to get the correct amount of QnAs. The file is then tagged as needing to be manually looked at. 
+#    Formatting manual files are still timesaving, so it is still done, but marked as being wrong. 
 def formatFile(file, isManual, questions, answers):
   
         
@@ -118,20 +120,22 @@ def formatFile(file, isManual, questions, answers):
 def main():
 
     print("💬 Checking if a formatted directory exists")
-    if formatted_folder_name not in os.listdir():
+    if formatted_folder_name not in os.listdir(): # crete formatted directory if it doesnt exist.
         os.mkdir(formatted_folder_name)
         print("💬 Created new formatted directory with name: " + formatted_folder_name)
 
 
     
     
-    formattingQueue = createFormattingQueue()
+    formattingQueue = createFormattingQueue() # Get all .txt files in unformatted directory.
     print(f"💬 Created queue of files to format ({len(formattingQueue)} files)")
+
+
 
     print(f"💬 Formatting {len(formattingQueue)} files.")
 
     manualCounter = 0 
-    for file in formattingQueue:
+    for file in formattingQueue: # 
         questions, answers = extractQnA(unformatted_dir_name + "/" + file)
 
         needsToBeFixedManually = len(questions) != len(answers)
