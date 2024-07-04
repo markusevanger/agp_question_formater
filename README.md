@@ -20,4 +20,13 @@ Programmet kan kun kjøres med .bat filen fra Windows PCer, men kan kjøres fra 
 + Filene skal nå ligge i `formatted` mappen. Disse kan du nå bruke i AGP :D
 
 > NB! Scriptet er ikke grundig testet og derfor burde det alltid dobbeltsjekkes at spørsmål og svar er riktig! 
-  
+
+```
+agp_question_formater-main
+├── formater.py
+├── run_windows.bat
+├── unformatted
+│   └── 📄 Plasser uformaterte .txt filer her <----
+└── formatted
+    └── 📁 Denne mappen genereres automatisk vis den ikke er tilstede. Her kommer output.
+```
